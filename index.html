@@ -13,16 +13,13 @@
   <a-scene renderer="antialias: true; colorManagement: true;" loading-screen="dotsColor: orange; backgroundColor: black">
     <a-assets>
       <img id="rez_accueil" src="assets/textures/rez_accueil.JPG" preload crossorigin></img>
-      <img id="1_hall" src="assets/textures/1_hall.JPG" preload crossorigin></img>
-      <audio id="demosound1" src="assets/sounds/seashore.flac" preload crossorigin></audio>
-      <audio id="demosound2" src="assets/sounds/song.wav" preload crossorigin></audio>
+      <img id="hall" src="assets/textures/1_hall.JPG" preload crossorigin></img>
 
       <a-mixin
           id="viewsphere"
           position="0 -100 0"
           geometry="primitive: sphere; radius:20; segmentsWidth:128; segmentsHeight:128"
           material="shader:flat; side: back; repeat:-1 1;"
-          sound="autoplay:true; loop:true; maxDistance:50; poolSize:10"
         ></a-mixin>
 
 
@@ -39,23 +36,23 @@
     </a-assets>
 
     <!-- TEST -->
-    <a-entity id="rez_accueil" mixin="viewsphere" material="src: #rez_accueil;" position="0 0 0" sound="src: #demosound1" autoplaysound>
+    <a-entity id="rez_accueil" mixin="viewsphere" material="src: #rez_accueil;" position="0 0 0">
       <a-entity position="0 0 0" rotation="5 50.5 0">
         <a-entity
           mixin="marker"
           event-set__hideview="_event: mousedown; _target:#rez_accueil; position:0 -100 0;"
-          event-set__showview="_event: mousedown; _target:#1_hall; position:0 0 0;" 
+          event-set__showview="_event: mousedown; _target:#hall; position:0 0 0;" 
           event-set__orient="_event: mousedown; _target:#rig; rotation:0 -100 0;"
         >
         </a-entity>
       </a-entity>
     </a-entity>
     
-    <a-entity id="1_hall" mixin="viewsphere" material="src: #1_hall;" sound="src: #demosound2;" autoplaysound>
-      <a-entity position="0 0 0" rotation="5 100.5 0">
+    <a-entity id="hall" mixin="viewsphere" material="src: #hall;" position="0 0 0">
+      <a-entity position="0 0 0" rotation="5 80.5 0">
         <a-entity
           mixin="marker"
-          event-set__hideview="_event: mousedown; _target:#1_hall; position:0 -100 0;"
+          event-set__hideview="_event: mousedown; _target:#hall; position:0 -100 0;"
           event-set__showview="_event: mousedown; _target:#rez_accueil; position:0 0 0;" 
           event-set__orient="_event: mousedown; _target:#rig; rotation:0 -100 0;"
         >
@@ -65,8 +62,8 @@
       <a-entity position="0 0 0" rotation="5 50.5 0">
         <a-entity
           mixin="marker"
-          event-set__hideview="_event: mousedown; _target:#1_hall; position:0 -100 0;"
-          event-set__showview="_event: mousedown; _target:#rez_accueil position:0 0 0;" 
+          event-set__hideview="_event: mousedown; _target:#hall; position:0 -100 0;"
+          event-set__showview="_event: mousedown; _target:#rez_accueil; position:0 0 0;" 
           event-set__orient="_event: mousedown; _target:#rig; rotation:0 -100 0;"
         >
         </a-entity>
